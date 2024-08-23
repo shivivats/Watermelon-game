@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1724413869
+icon.svg::CompressedTexture2D::2474599257621527645::1724411575::1724411580::1::::<><>::
+::res://android/::1724413390
+::res://assets/::1724412999
+::res://assets/audio/::1724412872
+::res://assets/fonts/::1724412875
+::res://assets/sprites/::1724414172
+bg.png::CompressedTexture2D::7254454396822637717::1724413085::1724413085::1::::<><>::
+box.png::CompressedTexture2D::1224775259799205766::1724414172::1724414173::1::::<><>::
+cherry.png::CompressedTexture2D::3477999060423941853::1724412997::1724412999::1::::<><>::
+stawberry.png::CompressedTexture2D::3064472490340633904::1724412997::1724412999::1::::<><>::
+::res://scenes/::1724413964
+game.tscn::PackedScene::7421633267122939208::1724413880::0::1::::<><>::uid://dbmd2lppyiphl::::res://assets/sprites/bg.png
+fruit.tscn::PackedScene::9049206750764726343::1724413872::0::1::::<><>::uid://bjwpoc2mgcq7a::::res://assets/sprites/stawberry.png
+box.tscn::PackedScene::7833692915788536227::1724413964::0::1::::<><>::
+::res://scripts/::1724411597
