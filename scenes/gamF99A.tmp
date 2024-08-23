@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd0dhlh018a3i"]
+[gd_scene load_steps=5 format=3 uid="uid://dd0dhlh018a3i"]
 
 [ext_resource type="Texture2D" uid="uid://dbmd2lppyiphl" path="res://assets/sprites/bg.png" id="1_ofqy4"]
 [ext_resource type="PackedScene" uid="uid://djux1pe5nro0b" path="res://scenes/box.tscn" id="2_u0qk2"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_3nh0n"]
 [ext_resource type="PackedScene" uid="uid://cv0p52g06d7lr" path="res://scenes/fruit_apple.tscn" id="4_bbn6n"]
-[ext_resource type="PackedScene" uid="uid://bvhn234lyy4g4" path="res://scenes/_fruit_spawner.tscn" id="5_1pmnx"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,17 +20,9 @@ texture = ExtResource("1_ofqy4")
 [node name="Box" parent="." instance=ExtResource("2_u0qk2")]
 position = Vector2(-3, 430)
 
-[node name="FruitsParent" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="Fruits" type="Node" parent="."]
 
-[node name="apple" parent="FruitsParent" instance=ExtResource("4_bbn6n")]
-position = Vector2(212, 0)
+[node name="apple" parent="Fruits" instance=ExtResource("4_bbn6n")]
 
-[node name="apple2" parent="FruitsParent" instance=ExtResource("4_bbn6n")]
-position = Vector2(211, -67)
-
-[node name="FruitSpawner" parent="." instance=ExtResource("5_1pmnx")]
-
-[node name="Marker2D" type="Marker2D" parent="FruitSpawner"]
-position = Vector2(212, -170)
-scale = Vector2(175.648, 340.677)
+[node name="apple2" parent="Fruits" instance=ExtResource("4_bbn6n")]
+position = Vector2(6, -314)

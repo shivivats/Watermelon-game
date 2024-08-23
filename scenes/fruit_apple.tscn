@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv0p52g06d7lr"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_ktrqn"]
+[ext_resource type="Texture2D" uid="uid://dyg7eobhaubaj" path="res://assets/sprites/suika-assets_0000_apple.png" id="2_owohq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_76oex"]
+radius = 11.0
+
+[node name="apple" type="Node2D" groups=["apple"]]
+script = ExtResource("1_ktrqn")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["apple"]]
+max_contacts_reported = 50
+contact_monitor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" groups=["apple"]]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_owohq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" groups=["apple"]]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_76oex")
