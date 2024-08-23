@@ -1,4 +1,11 @@
-res://scenes/level.tscn
+res://scenes/fruit_cherry.tscn
 res://scenes/game.tscn
-res://scenes/fruit.tscn
 res://scenes/box.tscn
+res://scenes/fruit.tscn
+res://scripts/fruit.gd
+res://scripts/game_manager.gd
+res://scenes/fruit_strawberry.tscn
+res://scenes/fruit_apple.tscn
+res://scripts/fruit_spawner.gd
+res://scenes/fruit_spawner.tscn
+res://scenes/_fruit_spawner.tscn
