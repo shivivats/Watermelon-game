@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjwpoc2mgcq7a"
-path="res://.godot/imported/stawberry.png-3e618d98cb732ffab8e20c4da0b49495.ctex"
+uid="uid://bgtcsa0lsycc3"
+path="res://.godot/imported/suika-assets_0005_tomato.png-abc080d78c2019626b330de70b93445e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/stawberry.png"
-dest_files=["res://.godot/imported/stawberry.png-3e618d98cb732ffab8e20c4da0b49495.ctex"]
+source_file="res://assets/sprites/suika-assets_0005_tomato.png"
+dest_files=["res://.godot/imported/suika-assets_0005_tomato.png-abc080d78c2019626b330de70b93445e.ctex"]
 
 [params]
 
