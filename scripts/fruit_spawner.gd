@@ -12,19 +12,15 @@ var fruit_chances = {
 	#"melon", "peach", "pineapple", "greenmelon", "watermelon"
 }
 
-var current_fruit = null
-
 @onready var game_manager = %GameManager
 @onready var fruits_parent = %FruitsParent
+@onready var marker_2d = $Marker2D
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	randomize()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("temp_new_fruit"):
 		make_fruit("strawberry")
@@ -34,9 +30,10 @@ func _input(event):
 		print("Screen Click/Unclick at: ", event.position)
 	elif event is InputEventScreenDrag:
 		print("Screen Drag at: ", event.position)
+		marker_2d.position.x = event.position.x
 		
 	# Print the size of the viewport.
-		print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
+	#print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
 
 
 func get_next_fruit():
@@ -49,8 +46,7 @@ func get_next_fruit():
 
 func make_fruit(fruit_name):
 	var spawned_fruit = game_manager.fruit_dict[fruit_name].instantiate()
-	
-	spawned_fruit.global_position = $Marker2D.global_position
+	spawned_fruit.global_position = marker_2d.global_position
 	fruits_parent.add_child(spawned_fruit)
 	
 

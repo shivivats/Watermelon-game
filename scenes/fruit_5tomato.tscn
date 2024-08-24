@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bphy5ce1lfmco"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_roxuq"]
+[ext_resource type="Texture2D" uid="uid://bgtcsa0lsycc3" path="res://assets/sprites/suika-assets_0005_tomato.png" id="2_cdk84"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbqqn"]
+radius = 71.007
+
+[node name="tomato" type="Node2D" groups=["tomato"]]
+script = ExtResource("1_roxuq")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["tomato"]]
+max_contacts_reported = 50
+contact_monitor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" groups=["tomato"]]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cdk84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" groups=["tomato"]]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_qbqqn")
