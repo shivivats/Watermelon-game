@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccui1xhs5c6wn"
-path="res://.godot/imported/marker.png-7a97a9be6e0cba85a4e2cb590d97440b.ctex"
+uid="uid://miv2amas1dd1"
+path="res://.godot/imported/ui-4.png-7d213896e6de04ced64e6eca7c8823bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/marker.png"
-dest_files=["res://.godot/imported/marker.png-7a97a9be6e0cba85a4e2cb590d97440b.ctex"]
+source_file="res://assets/sprites/UI/ui-4.png"
+dest_files=["res://.godot/imported/ui-4.png-7d213896e6de04ced64e6eca7c8823bb.ctex"]
 
 [params]
 
