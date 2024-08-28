@@ -6,3 +6,9 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+
+# stores various project cache data
+.godot
+
+# These files are binary imported translations generated from CSV files.
+*.translation
