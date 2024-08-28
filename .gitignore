@@ -3,3 +3,6 @@
 /android/
 
 scenes/secret_text_label.tscn
+
+*.apk
+*.apk.idsig
