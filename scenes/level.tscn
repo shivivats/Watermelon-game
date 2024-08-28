@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bghstvdfe07rf"]
+[gd_scene load_steps=21 format=3 uid="uid://bghstvdfe07rf"]
 
 [ext_resource type="Texture2D" uid="uid://dajre0845rarv" path="res://assets/sprites/bg.png" id="1_pthw5"]
 [ext_resource type="PackedScene" uid="uid://ulqtorofweou" path="res://scenes/fruit_box.tscn" id="2_1i7i7"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://ock05amyb6ak" path="res://scenes/fruits/fruit_9_melon.tscn" id="13_o4f58"]
 [ext_resource type="PackedScene" uid="uid://blhuvc5yefmrt" path="res://scenes/fruits/fruit_10_watermelon.tscn" id="14_hs7w5"]
 [ext_resource type="FontFile" uid="uid://dq3pqtrka1oew" path="res://assets/fonts/JustForFun-Regular.otf" id="17_qwvo8"]
+[ext_resource type="Texture2D" uid="uid://bifgi1fo8tyf7" path="res://assets/sprites/UI/ui-1.png" id="18_6pvi2"]
+[ext_resource type="Texture2D" uid="uid://qkbnh5plxhim" path="res://assets/sprites/UI/ui-3.png" id="19_k02f1"]
+[ext_resource type="Texture2D" uid="uid://cfgjmw140racy" path="res://assets/sprites/fruits/suika-assets_0000_cherry.png" id="19_lretr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,7 +35,8 @@ input_pickable = true
 
 [node name="FruitSizesHintsImage" type="Sprite2D" parent="Camera2D"]
 visible = false
-position = Vector2(487, -677)
+position = Vector2(-793, 705)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("3_tid7c")
 
 [node name="cherry" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("3_jmb5g")]
@@ -78,23 +82,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(-196, -335)
 
-[node name="PointsLabel" parent="." instance=ExtResource("5_uc2r7")]
-offset_left = -119.0
-offset_top = -549.0
-offset_right = 122.0
-offset_bottom = -488.0
-theme_override_fonts/font = ExtResource("17_qwvo8")
-theme_override_font_sizes/font_size = 50
-text = "Score: 2048"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+[node name="Labels" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Labels"]
+visible = false
 offset_left = -540.0
-offset_top = -1039.0
+offset_top = -866.0
 offset_right = -364.0
-offset_bottom = -790.0
+offset_bottom = -617.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("17_qwvo8")
 theme_override_font_sizes/font_size = 50
@@ -106,16 +101,32 @@ text = "Highscores:
 5. 235"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = -92.0
-offset_top = -831.0
-offset_right = 90.0
-offset_bottom = -792.0
+[node name="NextFruitBox" type="Sprite2D" parent="."]
+position = Vector2(462, -1017)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("18_6pvi2")
+
+[node name="NextLabel" type="Label" parent="NextFruitBox"]
+offset_left = -173.0
+offset_top = -165.0
+offset_right = 162.0
+offset_bottom = -107.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("17_qwvo8")
-theme_override_font_sizes/font_size = 50
-text = "Next Fruit: "
+theme_override_font_sizes/font_size = 75
+text = "NEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NextFruitSprite" type="Sprite2D" parent="NextFruitBox"]
+position = Vector2(-7.29169, 16.6666)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("19_lretr")
+
+[node name="PointsLabelBox" type="Sprite2D" parent="."]
+position = Vector2(-306, -1019)
+texture = ExtResource("19_k02f1")
+
+[node name="PointsLabel" parent="PointsLabelBox" instance=ExtResource("5_uc2r7")]
 
 [connection signal="input_event" from="Camera2D/fruit_box" to="FruitSpawner" method="_on_fruit_box_input_event"]
