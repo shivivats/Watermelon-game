@@ -67,6 +67,10 @@ var points = 0
 """ Signal to broadcast upon points updation """
 signal points_updated(new_points)
 
+@export var explosion_magnitude = 35000
+
+signal fruits_explosion(position, magnitude)
+
 func _ready():
 	fruits_parent = get_node("/root/Node2D/FruitsParent")
 	points_updated.emit(points)
@@ -120,6 +124,10 @@ func new_fruit_from_collision(old_fruit_id, old_position):
 	
 	# set the fruit's position to the current fruit's position
 	new_fruit.set_deferred("global_position", old_position)
+	
+	# send signal to fruits to "explode"
+	fruits_explosion.emit(old_position, explosion_magnitude)
+	
 	
 	
 	

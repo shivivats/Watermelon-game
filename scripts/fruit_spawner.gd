@@ -157,7 +157,7 @@ Manages moving and releasing the fruit
 """
 func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventScreenTouch: # if the user touches the screen
-		print("Screen/Mouse touch at " + str(event.position))
+		#print("Screen/Mouse touch at " + str(event.position))
 		
 		# if we can release the fruit, then release it at the correctly transformed screen position
 		if not release_cooldown:
@@ -173,11 +173,8 @@ Will only handle moving the fruit_spawner object, not releasing the fruit.
 # https://forum.godotengine.org/t/godot-3-0-2-get-global-position-from-touchscreen/27397/4
 func _input(event : InputEvent) -> void:
 	if event is InputEventScreenDrag:
-		print("Screen/Mouse drag at " + str(event.position))
+		#print("Screen/Mouse drag at " + str(event.position))
 		
 		# move the fruit_spawner's x position to match the drag position.
 		# the held_fruit's position will be moved to match in _process()
-		update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)
-	elif event is InputEventScreenTouch:
-		print("Screen touch at : " + str(event.position))
-		
+		update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)		

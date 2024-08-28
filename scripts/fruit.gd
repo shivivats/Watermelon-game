@@ -21,17 +21,27 @@ func set_fruit_values():
 	# add the fruit to the global group with the fruit_id name
 	# this is used in collision checking later
 	add_to_group(fruit_id)
-	
-	# set the RigidBody's torque to the exposed torque parameter
-	self.constant_torque = angular_torque
 
 """ Set the fruit values upon the start of the game as well """
 func _ready() -> void:
 	set_fruit_values()
+	GameManager.fruits_explosion.connect(explode)
 
 """ Return the fruit_id """
 func get_fruit_id():
 	return fruit_id
+
+""" Explode the fruit upon signal from GameManager"""
+func explode(position, magnitude):
+	# get distance of self to combination position aka explosion center
+	var distance = self.global_position.distance_to(position)
+	
+	# get direction from self to combination position aka explosion center
+	var direction = (self.global_position - position).normalized()
+	
+	# divide with distance here to have fruits further away have less explosive power
+	# multiply with explosion magnitude
+	self.apply_central_impulse(direction * magnitude / distance)
 
 """ 
 Connected to the RigidBody, detects collisions on the respective shape
