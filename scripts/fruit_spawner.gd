@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var fruits_parent: Node = %FruitsParent
 
+@onready var fruit_box: StaticBody2D = $"../Camera2D/FruitBox"
+
 @onready var release_timer: Timer = $ReleaseTimer
 @onready var spawn_timer: Timer = $SpawnTimer
 
@@ -12,6 +14,9 @@ var next_fruit_id = "strawberry"
 
 @onready var next_fruit_sprite: Sprite2D = $"../NextFruitBox/NextFruitSprite"
 
+var world_boundary_left = null
+var world_boundary_right = null
+@export var boundary_offset = 25
 
 """
 Ran at the start of the scene.
@@ -19,6 +24,10 @@ Ran at the start of the scene.
 func _ready() -> void:
 	# make a new held fruit at the marker
 	new_held_fruit()
+	
+	# set the world boundaries from fruit box
+	world_boundary_left = fruit_box.get_node("WorldBoundaryLeft")
+	world_boundary_right = fruit_box.get_node("WorldBoundaryRight")
 
 """
 Runs every frame.
@@ -115,6 +124,17 @@ func _on_spawn_timer_timeout() -> void:
 	new_held_fruit()
 
 """
+Helper function to set self position after all the calcs
+"""
+func update_self_position(event_position):
+	var screen_position = get_canvas_transform().affine_inverse().translated(event_position).origin
+	self.global_position.x = clamp(screen_position.x,
+		world_boundary_left.global_position.x + boundary_offset,
+		world_boundary_right.global_position.x - boundary_offset
+		)
+	
+
+"""
 This is NOT a function directly connected to this script.
 It gets called from the fruit_box when that detects input.
 Manages moving and releasing the fruit
@@ -124,8 +144,7 @@ func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 		print("Screen/Mouse drag at " + str(event.position))
 		# move the fruit_spawner's x position to match the drag position.
 		# the held_fruit's position will be moved to match in _process()
-		var screen_position = get_canvas_transform().affine_inverse().translated(event.position).origin
-		self.global_position.x = screen_position.x
+		update_self_position(event.position)
 		
 	elif event is InputEventScreenTouch: # if the user touches the screen
 		print("Screen/Mouse touch at " + str(event.position))
@@ -145,7 +164,7 @@ Will only handle moving the fruit_spawner object, not releasing the fruit.
 func _input(event : InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		#print("Screen drag at " + str(event.position))
-		self.global_position.x = get_canvas_transform().affine_inverse().translated(event.position).origin.x
+		update_self_position(event.position)
 	elif event is InputEventScreenTouch:
 		print("Screen touch at : " + str(event.position))
 		
