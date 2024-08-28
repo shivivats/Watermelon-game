@@ -15,5 +15,5 @@ fruit_id = "watermelon"
 scale = Vector2(0.4, 0.4)
 texture = SubResource("CompressedTexture2D_eahaq")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_58hmm")
