@@ -16,6 +16,8 @@ extends RigidBody2D
 @export var fruit_id = "fruit"
 @export var angular_torque = 50
 
+var latest_fruit = false
+
 """ Set some fruit values based on the exposed parameters """
 func set_fruit_values():
 	# add the fruit to the global group with the fruit_id name
@@ -47,6 +49,12 @@ func explode(position, magnitude):
 Connected to the RigidBody, detects collisions on the respective shape
 """
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	# when the latest released fruit collides with anything, send a signal to spawn a new fruit
+	if latest_fruit:
+		latest_fruit = false
+		GameManager.make_new_held_fruit()
+	
+	
 	# just dont do anything if we or the other body is a watermelon
 	if body.is_in_group("watermelon") or self.is_in_group("watermelon"):
 		return

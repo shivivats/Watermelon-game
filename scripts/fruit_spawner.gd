@@ -34,6 +34,8 @@ func _ready() -> void:
 	# subscribe to the disable input event from GameManager
 	GameManager.disable_input.connect(update_can_input)
 
+	GameManager.new_held_fruit.connect(new_held_fruit)
+
 """
 Runs every frame.
 """
@@ -55,11 +57,11 @@ Release the current held fruit
 func release_fruit():
 	
 	# make absolutely sure that we have a held_fruit!!
-	assert(held_fruit, "No held fruit!!")
+	#assert(held_fruit, "No held fruit!!")
 	
 	# condition here for release builds (for now. the game should never be released if the assert above is being fired)
 	if not held_fruit:
-		pass
+		return
 	
 	# make sure the fruit's release position is updated!
 	#held_fruit.global_position.x = position.x 
@@ -90,6 +92,9 @@ func release_fruit():
 Spawn a new held fruit at the fruit_spawner marker
 """
 func new_held_fruit():
+	if held_fruit:
+		return
+	
 	assert(next_fruit_id, "Next fruit ID not set!!!")
 	
 	# get the next fruit object from the game master
@@ -100,7 +105,8 @@ func new_held_fruit():
 	
 	# freeze the fruit's rigidbody physics
 	held_fruit.freeze = true 
-
+	
+	held_fruit.latest_fruit = true
 	
 	#held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", true)
 	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", true)
@@ -135,7 +141,8 @@ When spawn timer elapses.
 """
 func _on_spawn_timer_timeout() -> void:
 	# Spawn a new held_fruit upon spawn cooldown ending
-	new_held_fruit()
+	#new_held_fruit()
+	pass
 
 """
 Helper function to set self position after all the calcs

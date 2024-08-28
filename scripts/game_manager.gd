@@ -76,8 +76,12 @@ signal points_updated(new_points)
 # TODO: scale magnitude based on fruit size
 @export var explosion_magnitude = 35000
 
+""" The explosion signal when the fruits collide """
 signal fruits_explosion(position, magnitude)
 
+signal new_held_fruit()
+
+""" Disable input signal for when the game end UI pops up"""
 signal disable_input(can_input)
 
 func _ready():
@@ -164,3 +168,7 @@ func store_highscore():
 func game_ended():
 	store_highscore()
 	disable_input.emit(false)
+
+
+func make_new_held_fruit():
+	new_held_fruit.emit()
