@@ -53,6 +53,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		body.queue_free()
 		
 		# spawn a new fruit at this location 
-		GameManager.new_fruit_from_collision(fruit_id, self.global_position, self)
+		GameManager.new_fruit_from_collision(fruit_id, self.global_position)
 		
+		# delete self
 		self.queue_free()

@@ -10,13 +10,8 @@ radius = 36.0425
 fruit_id = "peach"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_e88b5")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
-visible = false
-
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_mipwv")

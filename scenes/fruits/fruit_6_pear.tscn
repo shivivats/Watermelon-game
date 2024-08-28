@@ -12,12 +12,8 @@ radius = 29.0011
 fruit_id = "pear"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 0)
 scale = Vector2(0.21, 0.21)
 texture = SubResource("CompressedTexture2D_ah85m")
-
-[node name="CollisionPolygon2D" parent="." index="1"]
-visible = false
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 2)

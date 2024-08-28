@@ -10,12 +10,8 @@ radius = 25.5
 fruit_id = "apple"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 0)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_7xnsh")
-
-[node name="CollisionPolygon2D" parent="." index="1"]
-visible = false
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 1)

@@ -13,12 +13,10 @@ constant_torque = 50.0
 fruit_id = "cherry"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, 0)
 scale = Vector2(0.07, 0.07)
 texture = SubResource("CompressedTexture2D_88o33")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-visible = false
 build_mode = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
