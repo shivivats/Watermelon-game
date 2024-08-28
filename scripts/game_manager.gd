@@ -86,6 +86,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("test"):
 		store_highscore()
+		
 
 """
 Get the next fruit name in the cycle for fusions 
