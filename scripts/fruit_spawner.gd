@@ -53,4 +53,3 @@ func make_fruit(fruit_name):
 	spawned_fruit.global_position = $Marker2D.global_position
 	fruits_parent.add_child(spawned_fruit)
 	
-

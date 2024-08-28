@@ -36,4 +36,3 @@ func on_fruits_collision(fruit1, fruit2, fruitName):
 	
 	spawned_fruit.global_position = pos2
 	
-
