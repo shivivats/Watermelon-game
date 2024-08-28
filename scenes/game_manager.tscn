@@ -1,8 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5qik6kcxlqbk"]
+[gd_scene load_steps=2 format=3 uid="uid://c5qik6kcxlqbk"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_36adp"]
-[ext_resource type="PackedScene" uid="uid://dqm17ic63tu03" path="res://scenes/explosion_area.tscn" id="2_ygnu5"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_36adp")
-explosion_area_scene = ExtResource("2_ygnu5")
+explosion_magnitude = 25000

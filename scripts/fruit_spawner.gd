@@ -18,6 +18,8 @@ var world_boundary_left = null
 var world_boundary_right = null
 @export var boundary_offset = 25
 
+var can_input = true
+
 """
 Ran at the start of the scene.
 """
@@ -26,9 +28,11 @@ func _ready() -> void:
 	world_boundary_left = fruit_box.get_node("WorldBoundaryLeft")
 	world_boundary_right = fruit_box.get_node("WorldBoundaryRight")
 	
-	
 	# make a new held fruit at the marker
 	new_held_fruit()
+	
+	# subscribe to the disable input event from GameManager
+	GameManager.disable_input.connect(update_can_input)
 
 """
 Runs every frame.
@@ -37,7 +41,14 @@ func _process(delta: float) -> void:
 	# if we have a held_fruit, then keep its position updated
 	if held_fruit: 
 		held_fruit.global_position = self.global_position
-	
+
+"""
+Update the can_input variable
+Usually should happenonly when the game ends
+"""
+func update_can_input(new_can_input):
+	self.can_input = new_can_input
+
 """
 Release the current held fruit
 """
@@ -156,6 +167,8 @@ It gets called from the fruit_box when that detects input.
 Manages moving and releasing the fruit
 """
 func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if not can_input:
+		return
 	if event is InputEventScreenTouch: # if the user touches the screen
 		#print("Screen/Mouse touch at " + str(event.position))
 		
@@ -172,6 +185,8 @@ Will only handle moving the fruit_spawner object, not releasing the fruit.
 """
 # https://forum.godotengine.org/t/godot-3-0-2-get-global-position-from-touchscreen/27397/4
 func _input(event : InputEvent) -> void:
+	if not can_input:
+		return
 	if event is InputEventScreenDrag:
 		#print("Screen/Mouse drag at " + str(event.position))
 		

@@ -78,6 +78,8 @@ signal points_updated(new_points)
 
 signal fruits_explosion(position, magnitude)
 
+signal disable_input(can_input)
+
 func _ready():
 	fruits_parent = get_node("/root/Node2D/FruitsParent")
 	points_updated.emit(points)
@@ -117,7 +119,7 @@ func get_new_fruit_scene(fruit_id):
 Add some points based on the new fruit spawned
 """
 func add_points(fruit_id):
-	points += friuit_points[fruit_id]
+	points += friuit_points[fruit_id] * 100
 	points_updated.emit(points)
 
 """
@@ -157,3 +159,8 @@ func store_highscore():
 		var file = FileAccess.open(highscore_file, FileAccess.WRITE)
 		file.store_string(str(points))
 		file.close()
+
+
+func game_ended():
+	store_highscore()
+	disable_input.emit(false)

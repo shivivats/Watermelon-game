@@ -13,19 +13,19 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_fq20i")
 
 [node name="guideline1" type="Sprite2D" parent="markericon"]
-position = Vector2(-38, 614)
+position = Vector2(-38, 466)
 texture = ExtResource("3_aius8")
 
 [node name="guideline2" type="Sprite2D" parent="markericon"]
-position = Vector2(-38, 1192)
+position = Vector2(-38, 1044)
 texture = ExtResource("3_aius8")
 
 [node name="guideline3" type="Sprite2D" parent="markericon"]
-position = Vector2(-38, 1766)
+position = Vector2(-38, 1618)
 texture = ExtResource("3_aius8")
 
 [node name="guideline4" type="Sprite2D" parent="markericon"]
-position = Vector2(-38, 2344)
+position = Vector2(-38, 2014)
 texture = ExtResource("3_aius8")
 
 [node name="ReleaseTimer" type="Timer" parent="."]
