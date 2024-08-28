@@ -6,19 +6,16 @@
 load_path = "res://.godot/imported/suika-assets_0002_grapes.png-4e243197b4dba25f0bfdddf32996c5fa.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycpgu"]
-radius = 14.0
+radius = 50.1662
 
 [node name="grapes" instance=ExtResource("1_sdvpa")]
 fruit_id = "grapes"
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(2.98023e-07, -2.38419e-07)
-scale = Vector2(0.11, 0.11)
+scale = Vector2(0.385, 0.385)
 texture = SubResource("CompressedTexture2D_e22cy")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(14, -6, 14.6162, -4.25215, 14.9319, -2.42815, 15.002, -0.183222, 14.1602, 2.30724, 12.8273, 3.8857, 13.1429, 6.41124, 12.5116, 8.20017, 11.0734, 10.3399, 8.68817, 11.4623, 5.9171, 11.4974, 5.1454, 13.0408, 3.88263, 14.3036, 1.9534, 15.5312, -0.642292, 15.8119, -2.95737, 15.3208, -4.95676, 13.6371, -6.2546, 11.322, -8.42937, 11.2168, -10.8497, 10.41, -12.5685, 8.51586, -13.2349, 5.95524, -12.9543, 3.67524, -14.4626, 1.74601, -14.9782, -1.30997, -14.614, -4.52147, -13.2897, -7.10391, -10.3762, -8.29581, -10.2106, -9.18973, -8.35657, -11.706, -5.31061, -12.4343, -5.2444, -13.8911, -4.25115, -13.8911, -3.88696, -15.8114, -2.23155, -15.8445, 0.41711, -14.0566, 0.913734, -14.6857, 1.60901, -14.4539, 3.56239, -12.2026, 6.64146, -12.1364, 9.05836, -10.9776, 11, -8)
-
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ycpgu")

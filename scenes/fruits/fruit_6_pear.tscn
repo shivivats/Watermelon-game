@@ -6,15 +6,15 @@
 load_path = "res://.godot/imported/suika-assets_0006_pear.png-50dacf84e7c3982f82b0263f297cc1a8.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jok5"]
-radius = 29.0011
+radius = 103.005
 
 [node name="pear" instance=ExtResource("1_bmd2b")]
 fruit_id = "pear"
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.21, 0.21)
+scale = Vector2(0.735, 0.735)
 texture = SubResource("CompressedTexture2D_ah85m")
 
-[node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, 2)
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_1jok5")

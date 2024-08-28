@@ -6,19 +6,17 @@
 load_path = "res://.godot/imported/suika-assets_0000_cherry.png-0b93f4055616e44bc2ce5044c8b5ff80.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8iv2"]
-radius = 8.01102
+radius = 27.0046
 
 [node name="cherry" instance=ExtResource("1_qcsm2")]
 constant_torque = 50.0
 fruit_id = "cherry"
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.07, 0.07)
+position = Vector2(0, -6)
+scale = Vector2(0.245, 0.245)
 texture = SubResource("CompressedTexture2D_88o33")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
-build_mode = 1
-
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 2.5)
 shape = SubResource("CircleShape2D_o8iv2")

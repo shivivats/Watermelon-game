@@ -6,17 +6,15 @@
 load_path = "res://.godot/imported/suika-assets_0001_strawberry.png-c22ea6945c53632fadfed3307695168d.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y27xm"]
+radius = 35.0143
 
 [node name="strawberry" instance=ExtResource("1_qbu0e")]
 fruit_id = "strawberry"
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.28, 0.28)
 texture = SubResource("CompressedTexture2D_awywy")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
-position = Vector2(0, 3)
-polygon = PackedVector2Array(10.625, -5.6875, 10.0625, -2.28125, 8.03125, 2.125, 5.15625, 5.6875, 2.1875, 7.96875, -0.125, 8.71875, -2.3125, 7.9375, -5.1875, 5.84375, -7.15581, 3.50572, -9.22054, 0.0251827, -10.5479, -4.25175, -10.4594, -7.5848, -8.92558, -9.8265, -6.94934, -11.0063, -6.30043, -11.6258, -3.55729, -12.7466, -1.02063, -13.661, -0.19474, -14.6934, 0.513166, -14.4574, 0.985104, -13.6315, 3.78125, -12.6875, 5.9375, -11.9375, 6.8125, -11.1875, 8.625, -10.0625, 10.1563, -8.1875)
-
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_y27xm")

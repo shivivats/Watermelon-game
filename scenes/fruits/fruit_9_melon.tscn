@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bn7iau8fl6o5d" path="res://assets/sprites/fruits/suika-assets_0009_melon.png" id="2_k3jmr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n0ho2"]
-radius = 50.0
+radius = 178.404
 
 [node name="melon" instance=ExtResource("1_2p1lw")]
 fruit_id = "melon"
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.36, 0.36)
+scale = Vector2(1.26, 1.26)
 texture = ExtResource("2_k3jmr")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_n0ho2")
