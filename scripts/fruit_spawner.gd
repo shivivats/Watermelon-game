@@ -8,8 +8,12 @@ extends Node2D
 var release_cooldown = false
 var held_fruit = null
 
-var held_polygon_disabled_default = false
-var held_shape_disabled_default = false
+var next_fruit_id = "strawberry"
+
+@export var global_fruit_scale = 3.5
+
+
+@onready var next_fruit_sprite: Sprite2D = $"../NextFruitBox/NextFruitSprite"
 
 
 """
@@ -46,10 +50,10 @@ func release_fruit():
 	held_fruit.freeze = false 
 	
 	# set the collisions back to default
-	held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", held_polygon_disabled_default)
-	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", held_shape_disabled_default)
-	held_polygon_disabled_default = false
-	held_shape_disabled_default = false
+	#held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", held_polygon_disabled_default)
+	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", false)
+	#held_polygon_disabled_default = false
+	#held_shape_disabled_default = false
 	
 	# remove our reference to the held fruit so we stop updating it in _process and are ready for a new held fruit
 	held_fruit = null 
@@ -68,24 +72,40 @@ func release_fruit():
 Spawn a new held fruit at the fruit_spawner marker
 """
 func new_held_fruit():
-	# get a random fruit object from the game master
-	held_fruit = GameManager.get_random_new_fruit_scene().instantiate()
+	assert(next_fruit_id, "Next fruit ID not set!!!")
+	
+	# get the next fruit object from the game master
+	held_fruit = GameManager.get_new_fruit_scene(next_fruit_id).instantiate()
+	
+	# set the scale accordingly
+	held_fruit.get_node("Sprite2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
+	held_fruit.get_node("CollisionShape2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
 	
 	# set the fruit's position to the position of the fruit spawner marker
 	held_fruit.global_position = self.global_position 
 	
 	# freeze the fruit's rigidbody physics
 	held_fruit.freeze = true 
+
 	
-	# disable the collision on the held_fruit as well
-	held_polygon_disabled_default = held_fruit.get_node("CollisionPolygon2D").is_disabled()
-	held_shape_disabled_default = held_fruit.get_node("CollisionShape2D").is_disabled()
-	
-	held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", true)
+	#held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", true)
 	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", true)
 	
 	# attach the fruit to the fruits_parent object in the scene tree
 	fruits_parent.add_child(held_fruit) 
+	
+	update_next_fruit_sprite()
+
+"""
+Update the next fruit sprite
+"""
+func update_next_fruit_sprite():
+	# get a random fruit ID from the game manager as the next fruit id
+	next_fruit_id = GameManager.get_random_new_fruit_name()
+	
+	# update the next fruit sprite
+	next_fruit_sprite.texture = GameManager.fruit_sprites[next_fruit_id]
+
 
 """
 When release timer elapses.
