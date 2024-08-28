@@ -64,9 +64,16 @@ const fruit_scenes = {
 """ Current points the player has gathered """
 var points = 0
 
+""" Player's current highscore """
+var highscore = 0
+
+""" Highscore File location """
+const highscore_file = "user://highscore.txt"
+
 """ Signal to broadcast upon points updation """
 signal points_updated(new_points)
 
+# TODO: scale magnitude based on fruit size
 @export var explosion_magnitude = 35000
 
 signal fruits_explosion(position, magnitude)
@@ -74,11 +81,11 @@ signal fruits_explosion(position, magnitude)
 func _ready():
 	fruits_parent = get_node("/root/Node2D/FruitsParent")
 	points_updated.emit(points)
+	load_highscore()
 
-#func _process(delta):
-	#if not fruits_parent:
-		#fruits_parent = get_node("/root/Node2D/FruitSpawner")
-		#
+func _process(delta):
+	if Input.is_action_just_pressed("test"):
+		store_highscore()
 
 """
 Get the next fruit name in the cycle for fusions 
@@ -129,5 +136,23 @@ func new_fruit_from_collision(old_fruit_id, old_position):
 	fruits_explosion.emit(old_position, explosion_magnitude)
 	
 	
+# upon game start, load the highscore
+func load_highscore():
+	if not FileAccess.file_exists(highscore_file):
+		highscore = 0
+		print("getting default highscore aka 0")
+	else:
+		var file = FileAccess.open(highscore_file, FileAccess.READ)
+		var content = file.get_as_text(true)
+		print("read file contents " + content)
+		highscore = int(content)
+		print("highscore is " + str(highscore))
+		file.close()
 	
-	
+# upon game end, check if the current score is higher than the highscore, then save it
+func store_highscore():
+	print("Game end points are " + str(points) + " and highscore is " + str(highscore))
+	if points > highscore:
+		var file = FileAccess.open(highscore_file, FileAccess.WRITE)
+		file.store_string(str(points))
+		file.close()

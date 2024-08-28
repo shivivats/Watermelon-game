@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://l8wq1sg2p1y"]
+
+[sub_resource type="GDScript" id="GDScript_fkwrj"]
+script/source = "extends Area2D
+
+func explode():
+	print(\"exploded!\")
+	
+	if not has_overlapping_bodies():
+		print(\"no overlapping bodies!\")
+		return
+		
+	var bodies = get_overlapping_bodies()
+	print(\"bodies found!\")
+	for body in bodies:
+		var distance = self.global_position.distance_to(body.global_position)
+		var direction = (body.global_position - self.global_position).normalized()
+		
+		if not body.has_node(\"RigidBody2D\"):
+			continue
+		
+		print(\"explosion on \" + str(body))
+		
+			
+		
+		
+		
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msfpk"]
+radius = 1000.0
+
+[node name="ExplosionArea" type="Area2D"]
+script = SubResource("GDScript_fkwrj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_msfpk")
+debug_color = Color(0.952819, 2.59906e-06, 0.556715, 0.42)
