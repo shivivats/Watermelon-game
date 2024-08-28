@@ -10,9 +10,6 @@ var held_fruit = null
 
 var next_fruit_id = "strawberry"
 
-@export var global_fruit_scale = 3.5
-
-
 @onready var next_fruit_sprite: Sprite2D = $"../NextFruitBox/NextFruitSprite"
 
 
@@ -76,10 +73,6 @@ func new_held_fruit():
 	
 	# get the next fruit object from the game master
 	held_fruit = GameManager.get_new_fruit_scene(next_fruit_id).instantiate()
-	
-	# set the scale accordingly
-	held_fruit.get_node("Sprite2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
-	held_fruit.get_node("CollisionShape2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
 	
 	# set the fruit's position to the position of the fruit spawner marker
 	held_fruit.global_position = self.global_position 

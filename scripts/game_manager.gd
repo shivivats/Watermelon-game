@@ -61,8 +61,6 @@ const fruit_scenes = {
 	"watermelon" : preload("res://scenes/fruits/fruit_10_watermelon.tscn") 
 }
 
-var global_fruit_scale = 3.5
-
 """ Current points the player has gathered """
 var points = 0
 
@@ -116,10 +114,6 @@ Spawn a new fruit as a result of collision between two of the same fruits
 func new_fruit_from_collision(old_fruit_id, old_position):	
 	# instantiate a new fruit based on the next fruit_id
 	var new_fruit = fruit_scenes[get_next_fruit_id(old_fruit_id)].instantiate()
-	
-	# set the scale of the new fruit appropriately
-	new_fruit.get_node("Sprite2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
-	new_fruit.get_node("CollisionShape2D").scale *= Vector2(global_fruit_scale, global_fruit_scale)
 	
 	# add the new fruit to the scene tree
 	fruits_parent.call_deferred("add_child", new_fruit) 
