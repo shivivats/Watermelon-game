@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://bghstvdfe07rf"]
+
+[ext_resource type="Texture2D" uid="uid://dajre0845rarv" path="res://assets/sprites/bg.png" id="1_pthw5"]
+[ext_resource type="PackedScene" uid="uid://ulqtorofweou" path="res://scenes/fruit_box.tscn" id="2_1i7i7"]
+[ext_resource type="PackedScene" uid="uid://bpnsdjbk0b58v" path="res://scenes/fruits/fruit_0_cherry.tscn" id="3_jmb5g"]
+[ext_resource type="Texture2D" uid="uid://bjptf4joyi3ou" path="res://assets/sprites/Suika_Game_Tips_7.webp" id="3_tid7c"]
+[ext_resource type="PackedScene" uid="uid://naioa3noo4ke" path="res://scenes/fruits/fruit_1_strawberry.tscn" id="4_um3yu"]
+[ext_resource type="PackedScene" uid="uid://dmhpe4rotlx7r" path="res://scenes/fruit_spawner.tscn" id="5_2xcla"]
+[ext_resource type="PackedScene" uid="uid://bctcr53ldj8ld" path="res://scenes/points_label.tscn" id="5_uc2r7"]
+[ext_resource type="PackedScene" uid="uid://1c1b7x6mduj8" path="res://scenes/fruits/fruit_2_grapes.tscn" id="5_xvy6m"]
+[ext_resource type="PackedScene" uid="uid://ctgp2o3vavkid" path="res://scenes/fruits/fruit_3_dekopon.tscn" id="7_ve8d6"]
+[ext_resource type="PackedScene" uid="uid://bc3wuyg5slpom" path="res://scenes/fruits/fruit_4_persimmon.tscn" id="8_bi0g1"]
+[ext_resource type="PackedScene" uid="uid://ew3e2oe4v0tf" path="res://scenes/fruits/fruit_5_apple.tscn" id="9_wjxy8"]
+[ext_resource type="PackedScene" uid="uid://cc3o5e2g67ie4" path="res://scenes/fruits/fruit_6_pear.tscn" id="10_4awij"]
+[ext_resource type="PackedScene" uid="uid://dmmmt51m7va7f" path="res://scenes/fruits/fruit_7_peach.tscn" id="11_yi1pg"]
+[ext_resource type="PackedScene" uid="uid://byk5ktqq54qac" path="res://scenes/fruits/fruit_8_pineapple.tscn" id="12_op8l2"]
+[ext_resource type="PackedScene" uid="uid://ock05amyb6ak" path="res://scenes/fruits/fruit_9_melon.tscn" id="13_o4f58"]
+[ext_resource type="PackedScene" uid="uid://blhuvc5yefmrt" path="res://scenes/fruits/fruit_10_watermelon.tscn" id="14_hs7w5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(2.28906, 2.28906)
+texture = ExtResource("1_pthw5")
+
+[node name="fruit_box" parent="Camera2D" instance=ExtResource("2_1i7i7")]
+position = Vector2(1, 136)
+scale = Vector2(-0.625316, 1)
+input_pickable = true
+
+[node name="FruitSizesHintsImage" type="Sprite2D" parent="Camera2D"]
+visible = false
+position = Vector2(487, -677)
+texture = ExtResource("3_tid7c")
+
+[node name="cherry" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("3_jmb5g")]
+position = Vector2(-324, 84)
+fruit_id = "fruit"
+
+[node name="strawberry" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("4_um3yu")]
+position = Vector2(-301, 84)
+
+[node name="grapes" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("5_xvy6m")]
+position = Vector2(-271, 79.9999)
+rotation = -0.700665
+fruit_id = "fruit"
+
+[node name="dekopon" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("7_ve8d6")]
+position = Vector2(-235, 77)
+
+[node name="persimmon" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("8_bi0g1")]
+position = Vector2(-192, 73)
+
+[node name="apple" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("9_wjxy8")]
+position = Vector2(-139, 68)
+
+[node name="pear" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("10_4awij")]
+position = Vector2(-77, 63)
+
+[node name="peach" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("11_yi1pg")]
+position = Vector2(-5, 59)
+
+[node name="pineapple" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("12_op8l2")]
+position = Vector2(79, 47)
+
+[node name="melon" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("13_o4f58")]
+position = Vector2(177, 44)
+
+[node name="watermelon" parent="Camera2D/FruitSizesHintsImage" instance=ExtResource("14_hs7w5")]
+position = Vector2(293, 35)
+
+[node name="FruitsParent" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="FruitSpawner" parent="." instance=ExtResource("5_2xcla")]
+unique_name_in_owner = true
+position = Vector2(-196, -335)
+
+[node name="PointsLabel" parent="." instance=ExtResource("5_uc2r7")]
+offset_left = -50.0
+offset_top = -418.0
+offset_right = 54.0
+offset_bottom = -383.0
+
+[connection signal="input_event" from="Camera2D/fruit_box" to="FruitSpawner" method="_on_fruit_box_input_event"]
