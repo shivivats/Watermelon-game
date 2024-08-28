@@ -22,12 +22,13 @@ var world_boundary_right = null
 Ran at the start of the scene.
 """
 func _ready() -> void:
-	# make a new held fruit at the marker
-	new_held_fruit()
-	
 	# set the world boundaries from fruit box
 	world_boundary_left = fruit_box.get_node("WorldBoundaryLeft")
 	world_boundary_right = fruit_box.get_node("WorldBoundaryRight")
+	
+	
+	# make a new held fruit at the marker
+	new_held_fruit()
 
 """
 Runs every frame.
@@ -96,6 +97,8 @@ func new_held_fruit():
 	# attach the fruit to the fruits_parent object in the scene tree
 	fruits_parent.add_child(held_fruit) 
 	
+	update_boundary_offset()
+	
 	update_next_fruit_sprite()
 
 """
@@ -126,13 +129,26 @@ func _on_spawn_timer_timeout() -> void:
 """
 Helper function to set self position after all the calcs
 """
-func update_self_position(event_position):
-	var screen_position = get_canvas_transform().affine_inverse().translated(event_position).origin
-	self.global_position.x = clamp(screen_position.x,
+func update_self_position(new_position):
+	self.global_position.x = clamp(new_position.x,
 		world_boundary_left.global_position.x + boundary_offset,
 		world_boundary_right.global_position.x - boundary_offset
 		)
+
+
+
+"""
+Helper function to update boundary offset based on the current held fruit
+"""
+func update_boundary_offset():
+	if not held_fruit:
+		return
 	
+	# update the boundary offset based on the current held fruit's collision shape radius
+	boundary_offset = held_fruit.get_node("CollisionShape2D").shape.radius
+	
+	# update the self position again
+	update_self_position(self.global_position)
 
 """
 This is NOT a function directly connected to this script.
@@ -140,13 +156,7 @@ It gets called from the fruit_box when that detects input.
 Manages moving and releasing the fruit
 """
 func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventScreenDrag: # if the user drags on the screen
-		print("Screen/Mouse drag at " + str(event.position))
-		# move the fruit_spawner's x position to match the drag position.
-		# the held_fruit's position will be moved to match in _process()
-		update_self_position(event.position)
-		
-	elif event is InputEventScreenTouch: # if the user touches the screen
+	if event is InputEventScreenTouch: # if the user touches the screen
 		print("Screen/Mouse touch at " + str(event.position))
 		
 		# if we can release the fruit, then release it at the correctly transformed screen position
@@ -163,8 +173,11 @@ Will only handle moving the fruit_spawner object, not releasing the fruit.
 # https://forum.godotengine.org/t/godot-3-0-2-get-global-position-from-touchscreen/27397/4
 func _input(event : InputEvent) -> void:
 	if event is InputEventScreenDrag:
-		#print("Screen drag at " + str(event.position))
-		update_self_position(event.position)
+		print("Screen/Mouse drag at " + str(event.position))
+		
+		# move the fruit_spawner's x position to match the drag position.
+		# the held_fruit's position will be moved to match in _process()
+		update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)
 	elif event is InputEventScreenTouch:
 		print("Screen touch at : " + str(event.position))
 		
