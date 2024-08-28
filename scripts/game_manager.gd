@@ -70,7 +70,7 @@ var points = 0
 signal points_updated(new_points)
 
 func _ready():
-	fruits_parent = get_node("/root/Node2D/FruitSpawner")
+	fruits_parent = get_node("/root/Node2D/FruitsParent")
 	points_updated.emit(points)
 
 #func _process(delta):
@@ -113,7 +113,7 @@ func add_points(fruit_id):
 """
 Spawn a new fruit as a result of collision between two of the same fruits
 """
-func new_fruit_from_collision(old_fruit_id, old_position, old_fruit):	
+func new_fruit_from_collision(old_fruit_id, old_position):	
 	# instantiate a new fruit based on the next fruit_id
 	var new_fruit = fruit_scenes[get_next_fruit_id(old_fruit_id)].instantiate()
 	
