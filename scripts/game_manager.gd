@@ -79,24 +79,30 @@ signal points_updated(new_points)
 """ The explosion signal when the fruits collide """
 signal fruits_explosion(position, magnitude)
 
+""" Signal sent out to spawn new held fruit """
 signal new_held_fruit()
 
 """ Disable input signal for when the game end UI pops up"""
 signal disable_input(can_input)
 
 func _ready():
+	# find fruits_parent dynamically
 	fruits_parent = get_node("/root/Node2D/FruitsParent")
+	
+	# update the points text with default value
 	points_updated.emit(points)
+	
+	# update highscore text with default values
 	load_highscore()
 
-func _process(delta):
-	if Input.is_action_just_pressed("test"):
-		store_highscore()
+#func _process(delta):
+	#if Input.is_action_just_pressed("test"):
+		#store_highscore()
 		
 
 """
 Get the next fruit name in the cycle for fusions 
-This function should never fire on the watermelon we check for it anyways
+This function should never fire on the watermelon but we check for it anyways
 """
 func get_next_fruit_id(fruit_id):
 	assert(fruit_id != "watermelon", "Trying to fuse watermelons!")
@@ -123,7 +129,7 @@ func get_new_fruit_scene(fruit_id):
 Add some points based on the new fruit spawned
 """
 func add_points(fruit_id):
-	points += friuit_points[fruit_id] * 100
+	points += friuit_points[fruit_id]
 	points_updated.emit(points)
 
 """

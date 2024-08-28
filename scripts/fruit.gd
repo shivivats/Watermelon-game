@@ -16,6 +16,7 @@ extends RigidBody2D
 @export var fruit_id = "fruit"
 @export var angular_torque = 50
 
+""" True when this is the latest fruit released and hasnt collided with anything"""
 var latest_fruit = false
 
 """ Set some fruit values based on the exposed parameters """

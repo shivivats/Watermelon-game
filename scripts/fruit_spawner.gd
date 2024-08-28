@@ -1,5 +1,6 @@
 extends Node2D
 
+""" Hard-coded references """
 @onready var fruits_parent: Node = %FruitsParent
 
 @onready var fruit_box: StaticBody2D = $"../Camera2D/FruitBox"
@@ -8,16 +9,23 @@ extends Node2D
 @onready var spawn_timer: Timer = $SpawnTimer
 
 var release_cooldown = false
+
 var held_fruit = null
 
+""" Default next fruit id is strawberry """
 var next_fruit_id = "strawberry"
 
+""" Reference for next_fruit_sprite """
 @onready var next_fruit_sprite: Sprite2D = $"../NextFruitBox/NextFruitSprite"
 
+""" World boundary references set in _ready """
 var world_boundary_left = null
 var world_boundary_right = null
-@export var boundary_offset = 25
 
+""" Offset from the world boundaries"""
+@export var boundary_offset = 100
+
+""" True when we're taking user input """
 var can_input = true
 
 """
@@ -46,7 +54,7 @@ func _process(delta: float) -> void:
 
 """
 Update the can_input variable
-Usually should happenonly when the game ends
+Currently only happens when the game ends
 """
 func update_can_input(new_can_input):
 	self.can_input = new_can_input
@@ -56,25 +64,16 @@ Release the current held fruit
 """
 func release_fruit():
 	
-	# make absolutely sure that we have a held_fruit!!
-	#assert(held_fruit, "No held fruit!!")
-	
 	# condition here for release builds (for now. the game should never be released if the assert above is being fired)
 	if not held_fruit:
 		return
 	
-	# make sure the fruit's release position is updated!
-	#held_fruit.global_position.x = position.x 
-	
 	# remove the physics freeze from the rigidbody
 	held_fruit.freeze = false 
 	
-	# set the collisions back to default
-	#held_fruit.get_node("CollisionPolygon2D").set_deferred("disabled", held_polygon_disabled_default)
+	# set the collision to false
 	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", false)
-	#held_polygon_disabled_default = false
-	#held_shape_disabled_default = false
-	
+
 	# remove our reference to the held fruit so we stop updating it in _process and are ready for a new held fruit
 	held_fruit = null 
 	
@@ -92,6 +91,8 @@ func release_fruit():
 Spawn a new held fruit at the fruit_spawner marker
 """
 func new_held_fruit():
+	
+	# if we're already holding a fruit then dont do anything
 	if held_fruit:
 		return
 	
@@ -114,8 +115,10 @@ func new_held_fruit():
 	# attach the fruit to the fruits_parent object in the scene tree
 	fruits_parent.add_child(held_fruit) 
 	
+	# update the offset of the fruit_spawner marker from the world edges
 	update_boundary_offset()
 	
+	# update the "upcoming" next fruit sprite
 	update_next_fruit_sprite()
 
 """
@@ -148,6 +151,7 @@ func _on_spawn_timer_timeout() -> void:
 Helper function to set self position after all the calcs
 """
 func update_self_position(new_position):
+	# Clamp self position between world boundaries with offsets
 	self.global_position.x = clamp(new_position.x,
 		world_boundary_left.global_position.x + boundary_offset,
 		world_boundary_right.global_position.x - boundary_offset
@@ -176,6 +180,7 @@ Manages moving and releasing the fruit
 func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not can_input:
 		return
+	
 	if event is InputEventScreenTouch: # if the user touches the screen
 		#print("Screen/Mouse touch at " + str(event.position))
 		
