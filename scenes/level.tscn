@@ -18,7 +18,7 @@ visible = false
 scale = Vector2(2.28906, 2.28906)
 texture = ExtResource("1_pthw5")
 
-[node name="fruit_box" parent="Camera2D" instance=ExtResource("2_1i7i7")]
+[node name="FruitBox" parent="Camera2D" instance=ExtResource("2_1i7i7")]
 input_pickable = true
 
 [node name="FruitsParent" type="Node" parent="."]
@@ -27,6 +27,7 @@ unique_name_in_owner = true
 [node name="FruitSpawner" parent="." instance=ExtResource("5_2xcla")]
 unique_name_in_owner = true
 position = Vector2(-196, -335)
+boundary_offset = 100
 
 [node name="Labels" type="Node" parent="."]
 
@@ -75,4 +76,4 @@ texture = ExtResource("19_k02f1")
 
 [node name="PointsLabel" parent="PointsLabelBox" instance=ExtResource("5_uc2r7")]
 
-[connection signal="input_event" from="Camera2D/fruit_box" to="FruitSpawner" method="_on_fruit_box_input_event"]
+[connection signal="input_event" from="Camera2D/FruitBox" to="FruitSpawner" method="_on_fruit_box_input_event"]
