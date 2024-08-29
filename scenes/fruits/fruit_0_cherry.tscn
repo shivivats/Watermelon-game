@@ -89,6 +89,7 @@ radius = 27.0046
 [node name="cherry" instance=ExtResource("1_qcsm2")]
 constant_torque = 50.0
 script = SubResource("GDScript_rjgyg")
+fruit_id = "cherry"
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -6)
