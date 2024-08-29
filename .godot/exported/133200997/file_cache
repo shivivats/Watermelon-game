@@ -11,10 +11,10 @@ res://scenes/fruits/fruit_9_melon.tscn::ae51e550fc4765f8182b4b4297a4728f::172492
 res://scenes/fruits/fruit_10_watermelon.tscn::87ee12c099435e0ade1d76c9848797b5::1724928461::res://.godot/exported/133200997/export-4d0aaca116cc630f49dc55e595395d48-fruit_10_watermelon.scn
 res://scenes/explosion_area.tscn::0d95737aa81f5594b3bdfe4e78cb7a04::1724927376::res://.godot/exported/133200997/export-9402eb80fe2802023c129637adff9845-explosion_area.scn
 res://scenes/fruit.tscn::c02220effc6c64b1085b6cd8740bb20e::1724927376::res://.godot/exported/133200997/export-1b5ec3d53138b4ee3360e826a4be8c3c-fruit.scn
-res://scenes/fruit_box.tscn::73a06f4b0751432a718ff180201c665a::1724938589::res://.godot/exported/133200997/export-66a45f8687ffb59c7632330c3acc1bbc-fruit_box.scn
+res://scenes/fruit_box.tscn::73a06f4b0751432a718ff180201c665a::1724960935::res://.godot/exported/133200997/export-66a45f8687ffb59c7632330c3acc1bbc-fruit_box.scn
 res://scenes/fruit_sizes_hints.tscn::c55944d876f40687ac6e13c7496638be::1724836738::res://.godot/exported/133200997/export-4b704d951f073bd6afcdac10e11cff59-fruit_sizes_hints.scn
 res://scenes/fruit_spawner.tscn::aad588dd9a4ad2839b68e85930b43fb9::1724927376::res://.godot/exported/133200997/export-99fa6603b6a4171fa611b40b743cae24-fruit_spawner.scn
 res://scenes/game_manager.tscn::3cf7e6d7568fc43290f9dbb8237d7b05::1724927376::res://.godot/exported/133200997/export-18773aed85e32f6f60d8a5aa586802e3-game_manager.scn
-res://scenes/level.tscn::a878a59076825b53d3f4f9e7e7420ced::1724938506::res://.godot/exported/133200997/export-a0631f9feb269b9ee464fe0e4794e617-level.scn
+res://scenes/level.tscn::a878a59076825b53d3f4f9e7e7420ced::1724960935::res://.godot/exported/133200997/export-a0631f9feb269b9ee464fe0e4794e617-level.scn
 res://scenes/points_label.tscn::9a6b81d8097f7d32e63ad2341b0b3363::1724927376::res://.godot/exported/133200997/export-b258ee1ef3d15e674dc303d5e30f69c4-points_label.scn
 res://scenes/secret_text_label.tscn::7c1033d8034f1aa0cfba5973bc990ebb::1724849322::res://.godot/exported/133200997/export-bf7fdda67d7e7881ba589d7e85304160-secret_text_label.scn
