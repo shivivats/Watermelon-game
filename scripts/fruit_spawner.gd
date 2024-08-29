@@ -113,7 +113,7 @@ func new_held_fruit():
 	held_fruit.get_node("CollisionShape2D").set_deferred("disabled", true)
 	
 	# attach the fruit to the fruits_parent object in the scene tree
-	fruits_parent.add_child(held_fruit) 
+	fruits_parent.call_deferred("add_child",held_fruit) 
 	
 	# update the offset of the fruit_spawner marker from the world edges
 	update_boundary_offset()
