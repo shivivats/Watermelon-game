@@ -40,7 +40,7 @@ func _ready() -> void:
 	new_held_fruit()
 	
 	# subscribe to the disable input event from GameManager
-	GameManager.disable_input.connect(update_can_input)
+	GameManager.set_input.connect(update_can_input)
 
 	GameManager.new_held_fruit.connect(new_held_fruit)
 

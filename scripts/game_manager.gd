@@ -82,8 +82,8 @@ signal fruits_explosion(position, magnitude)
 """ Signal sent out to spawn new held fruit """
 signal new_held_fruit()
 
-""" Disable input signal for when the game end UI pops up"""
-signal disable_input(can_input)
+""" Set input signal for when the game end UI pops up"""
+signal set_input(can_input)
 
 func _ready():
 	# find fruits_parent dynamically
@@ -99,6 +99,15 @@ func _ready():
 	#if Input.is_action_just_pressed("test"):
 		#store_highscore()
 		
+"""
+Store the highscore when the app is paused,
+	the user clicks the back button (which quits the app),
+	or the close request is given (which doesnt work on android but might as well)
+https://docs.godotengine.org/en/stable/tutorials/inputs/handling_quit_requests.html
+"""
+func _notification(what):
+	if what == NOTIFICATION_APPLICATION_PAUSED or NOTIFICATION_WM_GO_BACK_REQUEST or NOTIFICATION_WM_CLOSE_REQUEST:
+		store_highscore()
 
 """
 Get the next fruit name in the cycle for fusions 
@@ -174,7 +183,7 @@ func store_highscore():
 
 func game_ended():
 	store_highscore()
-	disable_input.emit(false)
+	set_input.emit(false)
 
 
 func make_new_held_fruit():
