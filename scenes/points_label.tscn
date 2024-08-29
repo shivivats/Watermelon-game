@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bctcr53ldj8ld"]
+
+[ext_resource type="Script" path="res://scripts/points_label.gd" id="1_0ufhb"]
+[ext_resource type="FontFile" uid="uid://dq3pqtrka1oew" path="res://assets/fonts/JustForFun-Regular.otf" id="1_78pq0"]
+
+[node name="PointsLabel" type="Label"]
+offset_left = -262.0
+offset_top = -70.0
+offset_right = 249.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_78pq0")
+theme_override_font_sizes/font_size = 80
+text = "Score: 0"
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("1_0ufhb")

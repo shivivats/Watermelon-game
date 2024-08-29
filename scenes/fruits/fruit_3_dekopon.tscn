@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctgp2o3vavkid"]
+
+[ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_r1axa"]
+[ext_resource type="Texture2D" uid="uid://ry745ba814x3" path="res://assets/sprites/fruits/3_dekopon.png" id="2_fow0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkki6"]
+radius = 52.7553
+
+[node name="dekopon" instance=ExtResource("1_r1axa")]
+fruit_id = "dekopon"
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -1.33635)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("2_fow0k")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 2.55907)
+shape = SubResource("CircleShape2D_pkki6")

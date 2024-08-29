@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc3wuyg5slpom"]
+
+[ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_0ik7s"]
+[ext_resource type="Texture2D" uid="uid://dqsbc8gwlknkm" path="res://assets/sprites/fruits/4_persimmon.png" id="2_boh0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4tcp"]
+radius = 73.0
+
+[node name="persimmon" instance=ExtResource("1_0ik7s")]
+fruit_id = "persimmon"
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("2_boh0i")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_j4tcp")

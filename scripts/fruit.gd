@@ -1,19 +1,78 @@
-extends Node2D
+"""
+Checklist for new fruit instances:
+	- Change the root node name from "fruit" to whatever fruit this is
+	- Go to the root node and update the "fruit id"
+	- Do "make sub-resources unique" on the collision shape or polygon
+	- Change the sprite scale
+	- Move the sprite position to 0!
+	- Change the sprite location to be in the center
+	- Make the sprite sub-resource unique as well!
+	- Make sure the correct collision shape or polygon is enabled and visible!!
+"""
 
-@onready var game_manager = %GameManager
+extends RigidBody2D
 
-@onready var rigid_body = $RigidBody2D
+""" publically exposed fruit_id and angular_torque to be set individually on the fruit instances """
+@export var fruit_id = "fruit"
+@export var angular_torque = 50
 
+""" True when this is the latest fruit released and hasnt collided with anything"""
+var latest_fruit = false
 
-func _ready():
-	game_manager = get_tree().current_scene.get_node("%GameManager")
-	rigid_body.connect("body_shape_entered", _on_body_shape_entered)
+""" Set some fruit values based on the exposed parameters """
+func set_fruit_values():
+	# add the fruit to the global group with the fruit_id name
+	# this is used in collision checking later
+	add_to_group(fruit_id)
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	#print("body collided with shape!")
-	#print("body: " + str(body.get_groups()))
-	#print("self: " + str(self.get_groups()))
+""" Set the fruit values upon the start of the game as well """
+func _ready() -> void:
+	set_fruit_values()
+	GameManager.fruits_explosion.connect(explode)
+
+""" Return the fruit_id """
+func get_fruit_id():
+	return fruit_id
+
+""" Explode the fruit upon signal from GameManager"""
+func explode(position, magnitude):
+	# get distance of self to combination position aka explosion center
+	var distance = self.global_position.distance_to(position)
 	
-	if body.is_in_group(self.get_groups()[0]) and self.get_instance_id() < body.get_instance_id():
-		game_manager.on_fruits_collision(self, body, self.get_groups()[0])
+	# get direction from self to combination position aka explosion center
+	var direction = (self.global_position - position).normalized()
+	
+	# divide with distance here to have fruits further away have less explosive power
+	# multiply with explosion magnitude
+	self.apply_central_impulse(direction * magnitude / distance)
+
+""" 
+Connected to the RigidBody, detects collisions on the respective shape
+"""
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	# when the latest released fruit collides with anything, send a signal to spawn a new fruit
+	if latest_fruit:
+		latest_fruit = false
+		GameManager.make_new_held_fruit()
+	
+	
+	# just dont do anything if we or the other body is a watermelon
+	if body.is_in_group("watermelon") or self.is_in_group("watermelon"):
+		return
 		
+	# check for same group (aka same fruit) and only do the rest on one of the two colliding bodies
+	if body.is_in_group(fruit_id) and self.get_instance_id() < body.get_instance_id():
+		print("collided!")
+		print(body.get_groups())
+		
+		# add points accodingly
+		GameManager.add_points(GameManager.get_next_fruit_id(fruit_id))
+		
+		# delete the other body
+		body.queue_free()
+		
+		# spawn a new fruit at this location 
+		GameManager.new_fruit_from_collision(fruit_id, self.global_position)
+		
+		# delete self
+		self.queue_free()

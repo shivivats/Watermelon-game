@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsfwrvh4ghh5h"]
+
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="1_81nv3"]
+[ext_resource type="Texture2D" uid="uid://cfgjmw140racy" path="res://assets/sprites/fruits/0_cherry.png" id="1_jnvna"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdbjg"]
+radius = 13.0
+
+[node name="fruit" type="RigidBody2D"]
+can_sleep = false
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 50
+angular_velocity = 0.872665
+script = ExtResource("1_81nv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_jnvna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mdbjg")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

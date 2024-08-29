@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://blhuvc5yefmrt"]
+
+[ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_0gwtj"]
+[ext_resource type="Texture2D" uid="uid://lfd1vjn4whpg" path="res://assets/sprites/fruits/10_watermelon.png" id="2_lj8qh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_58hmm"]
+radius = 206.545
+
+[node name="watermelon" instance=ExtResource("1_0gwtj")]
+fruit_id = "watermelon"
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_lj8qh")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_58hmm")
