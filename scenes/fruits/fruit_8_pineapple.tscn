@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://byk5ktqq54qac"]
 
 [ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_vd4xb"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qy8ha"]
-load_path = "res://.godot/imported/suika-assets_0008_pineapple.png-a270ab2be3b5fefe38b9e93e1c5f7c73.ctex"
+[ext_resource type="Texture2D" uid="uid://hjb3p8fwuc4h" path="res://assets/sprites/fruits/8_pineapple.png" id="2_rihb1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5aurt"]
 radius = 145.003
@@ -13,7 +11,7 @@ fruit_id = "pineapple"
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1.155, 1.155)
-texture = SubResource("CompressedTexture2D_qy8ha")
+texture = ExtResource("2_rihb1")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 22)

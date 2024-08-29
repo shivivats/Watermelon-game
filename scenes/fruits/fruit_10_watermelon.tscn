@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blhuvc5yefmrt"]
 
 [ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_0gwtj"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eahaq"]
-load_path = "res://.godot/imported/suika-assets_0010_watermelon.png-9a9463662d2dbca0e688565ee2097a03.ctex"
+[ext_resource type="Texture2D" uid="uid://lfd1vjn4whpg" path="res://assets/sprites/fruits/10_watermelon.png" id="2_lj8qh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_58hmm"]
 radius = 206.545
@@ -13,7 +11,7 @@ fruit_id = "watermelon"
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1.4, 1.4)
-texture = SubResource("CompressedTexture2D_eahaq")
+texture = ExtResource("2_lj8qh")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_58hmm")

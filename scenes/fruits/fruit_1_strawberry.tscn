@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_qbu0e"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_awywy"]
-load_path = "res://.godot/imported/suika-assets_0001_strawberry.png-c22ea6945c53632fadfed3307695168d.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcgxw"]
+load_path = "res://.godot/imported/1_strawberry.png-4bd12d49cbedaaca66e778e93d14d3bf.ctex"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y27xm"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wbhuh"]
 radius = 35.0143
 
 [node name="strawberry" instance=ExtResource("1_qbu0e")]
@@ -13,8 +13,8 @@ fruit_id = "strawberry"
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.28, 0.28)
-texture = SubResource("CompressedTexture2D_awywy")
+texture = SubResource("CompressedTexture2D_kcgxw")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_y27xm")
+shape = SubResource("CircleShape2D_wbhuh")

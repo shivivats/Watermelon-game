@@ -18,17 +18,17 @@ const fruit_names = [
 ]
 
 const fruit_sprites = {
-	"cherry" : preload("res://assets/sprites/fruits/suika-assets_0000_cherry.png"),
-	"strawberry" : preload("res://assets/sprites/fruits/suika-assets_0001_strawberry.png"),
-	"grapes" : preload("res://assets/sprites/fruits/suika-assets_0002_grapes.png"),
-	"dekopon" : preload("res://assets/sprites/fruits/suika-assets_0003_dekopon.png"),
-	"persimmon" : preload("res://assets/sprites/fruits/suika-assets_0004_persimmon.png"),
-	"apple" : preload("res://assets/sprites/fruits/suika-assets_0005_apple.png"),
-	"pear" : preload("res://assets/sprites/fruits/suika-assets_0006_pear.png"),
-	"peach" : preload("res://assets/sprites/fruits/suika-assets_0007_peach.png"),
-	"pineapple" : preload("res://assets/sprites/fruits/suika-assets_0008_pineapple.png"),
-	"melon" : preload("res://assets/sprites/fruits/suika-assets_0009_melon.png"),
-	"watermelon"  : preload("res://assets/sprites/fruits/suika-assets_0010_watermelon.png")
+	"cherry" : preload("res://assets/sprites/fruits/0_cherry.png"),
+	"strawberry" : preload("res://assets/sprites/fruits/1_strawberry.png"),
+	"grapes" : preload("res://assets/sprites/fruits/2_grapes.png"),
+	"dekopon" : preload("res://assets/sprites/fruits/3_dekopon.png"),
+	"persimmon" : preload("res://assets/sprites/fruits/4_persimmon.png"),
+	"apple" : preload("res://assets/sprites/fruits/5_apple.png"),
+	"pear" : preload("res://assets/sprites/fruits/6_pear.png"),
+	"peach" : preload("res://assets/sprites/fruits/7_peach.png"),
+	"pineapple" : preload("res://assets/sprites/fruits/8_pineapple.png"),
+	"melon" : preload("res://assets/sprites/fruits/9_melon.png"),
+	"watermelon"  : preload("res://assets/sprites/fruits/10_watermelon.png")
 }
 
 """ A dict containing the points each fruit gives upon being fused into """ 
@@ -116,6 +116,7 @@ Only choose from the first 5 fuits (cheery to persimmon)
 func get_random_new_fruit_name():
 	# slice returns elements from 0 (inclusive) to 5 (exclusive)
 	return fruit_names.slice(0,5).pick_random()
+	#return fruit_names.pick_random()
 	
 
 """

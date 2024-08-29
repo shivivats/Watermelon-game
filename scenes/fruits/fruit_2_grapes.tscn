@@ -1,11 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://1c1b7x6mduj8"]
 
 [ext_resource type="PackedScene" uid="uid://dsfwrvh4ghh5h" path="res://scenes/fruit.tscn" id="1_sdvpa"]
+[ext_resource type="Texture2D" uid="uid://cqv6vbjtlrhjr" path="res://assets/sprites/fruits/2_grapes.png" id="2_w48vl"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e22cy"]
-load_path = "res://.godot/imported/suika-assets_0002_grapes.png-4e243197b4dba25f0bfdddf32996c5fa.ctex"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ycpgu"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_66f3c"]
 radius = 50.1662
 
 [node name="grapes" instance=ExtResource("1_sdvpa")]
@@ -14,8 +12,8 @@ fruit_id = "grapes"
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(2.98023e-07, -2.38419e-07)
 scale = Vector2(0.385, 0.385)
-texture = SubResource("CompressedTexture2D_e22cy")
+texture = ExtResource("2_w48vl")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_ycpgu")
+shape = SubResource("CircleShape2D_66f3c")
