@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn7iau8fl6o5d"
-path="res://.godot/imported/suika-assets_0009_melon.png-d7cda68e9b570db719d86c29a108b16b.ctex"
+uid="uid://cfgjmw140racy"
+path="res://.godot/imported/0_cherry.png-1cb6e2c7bdf089059eaed713ce5a6adb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0009_melon.png"
-dest_files=["res://.godot/imported/suika-assets_0009_melon.png-d7cda68e9b570db719d86c29a108b16b.ctex"]
+source_file="res://assets/sprites/fruits/0_cherry.png"
+dest_files=["res://.godot/imported/0_cherry.png-1cb6e2c7bdf089059eaed713ce5a6adb.ctex"]
 
 [params]
 

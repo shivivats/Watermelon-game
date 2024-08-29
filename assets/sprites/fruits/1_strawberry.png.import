@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsrsjm5jo0wg4"
-path="res://.godot/imported/suika-assets_0006_pear.png-f1e90bae6f5e648fb77fa9366b78d162.ctex"
+uid="uid://7c7e2av2q71d"
+path="res://.godot/imported/1_strawberry.png-4bd12d49cbedaaca66e778e93d14d3bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0006_pear.png"
-dest_files=["res://.godot/imported/suika-assets_0006_pear.png-f1e90bae6f5e648fb77fa9366b78d162.ctex"]
+source_file="res://assets/sprites/fruits/1_strawberry.png"
+dest_files=["res://.godot/imported/1_strawberry.png-4bd12d49cbedaaca66e778e93d14d3bf.ctex"]
 
 [params]
 

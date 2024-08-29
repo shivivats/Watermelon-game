@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfgjmw140racy"
-path="res://.godot/imported/suika-assets_0000_cherry.png-46d9751acf3e43881ddc69095f12ada1.ctex"
+uid="uid://u5vlgav2hkbc"
+path="res://.godot/imported/7_peach.png-cc3b7f8f54b3405c3316a3ae794a255c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0000_cherry.png"
-dest_files=["res://.godot/imported/suika-assets_0000_cherry.png-46d9751acf3e43881ddc69095f12ada1.ctex"]
+source_file="res://assets/sprites/fruits/7_peach.png"
+dest_files=["res://.godot/imported/7_peach.png-cc3b7f8f54b3405c3316a3ae794a255c.ctex"]
 
 [params]
 

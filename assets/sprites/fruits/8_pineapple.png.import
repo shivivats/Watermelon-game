@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lfd1vjn4whpg"
-path="res://.godot/imported/suika-assets_0010_watermelon.png-dd0553eee5af5779f772709b6d5e57ac.ctex"
+uid="uid://hjb3p8fwuc4h"
+path="res://.godot/imported/8_pineapple.png-7bb7f3e3b57ed4b383804c929b7846a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0010_watermelon.png"
-dest_files=["res://.godot/imported/suika-assets_0010_watermelon.png-dd0553eee5af5779f772709b6d5e57ac.ctex"]
+source_file="res://assets/sprites/fruits/8_pineapple.png"
+dest_files=["res://.godot/imported/8_pineapple.png-7bb7f3e3b57ed4b383804c929b7846a8.ctex"]
 
 [params]
 

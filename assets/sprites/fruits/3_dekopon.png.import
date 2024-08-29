@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2rfrro7noehr"
-path="res://.godot/imported/suika-assets_0005_apple.png-84b720dc91c19180a911234f01abeab9.ctex"
+uid="uid://ry745ba814x3"
+path="res://.godot/imported/3_dekopon.png-9e37806254af1daa2973f18044388590.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0005_apple.png"
-dest_files=["res://.godot/imported/suika-assets_0005_apple.png-84b720dc91c19180a911234f01abeab9.ctex"]
+source_file="res://assets/sprites/fruits/3_dekopon.png"
+dest_files=["res://.godot/imported/3_dekopon.png-9e37806254af1daa2973f18044388590.ctex"]
 
 [params]
 

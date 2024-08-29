@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqv6vbjtlrhjr"
-path="res://.godot/imported/suika-assets_0002_grapes.png-adeac200d8f6595fb72d996098cfc4f5.ctex"
+uid="uid://bsrsjm5jo0wg4"
+path="res://.godot/imported/6_pear.png-de93eeb4bf331309c7099c597a626cc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0002_grapes.png"
-dest_files=["res://.godot/imported/suika-assets_0002_grapes.png-adeac200d8f6595fb72d996098cfc4f5.ctex"]
+source_file="res://assets/sprites/fruits/6_pear.png"
+dest_files=["res://.godot/imported/6_pear.png-de93eeb4bf331309c7099c597a626cc1.ctex"]
 
 [params]
 

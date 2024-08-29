@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqsbc8gwlknkm"
-path="res://.godot/imported/suika-assets_0004_persimmon.png-c8d4e948134d3403192051605df066a7.ctex"
+uid="uid://b2rfrro7noehr"
+path="res://.godot/imported/5_apple.png-8c0a5d3f6547f40ca7560567a757f035.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruits/suika-assets_0004_persimmon.png"
-dest_files=["res://.godot/imported/suika-assets_0004_persimmon.png-c8d4e948134d3403192051605df066a7.ctex"]
+source_file="res://assets/sprites/fruits/5_apple.png"
+dest_files=["res://.godot/imported/5_apple.png-8c0a5d3f6547f40ca7560567a757f035.ctex"]
 
 [params]
 
