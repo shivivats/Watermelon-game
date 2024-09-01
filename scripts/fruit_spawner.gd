@@ -172,25 +172,26 @@ func update_boundary_offset():
 	# update the self position again
 	update_self_position(self.global_position)
 
-"""
-This is NOT a function directly connected to this script.
-It gets called from the fruit_box when that detects input.
-Manages moving and releasing the fruit
-"""
-func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if not can_input:
-		return
-	
-	if event is InputEventScreenTouch: # if the user touches the screen
-		#print("Screen/Mouse touch at " + str(event.position))
-		
-		# if we can release the fruit, then release it at the correctly transformed screen position
-		if not release_cooldown:
-			release_fruit()
-		else:
-			# TODO: Add some VFX and SFX and maybe even vibrations here to let the user know they cant release a fruit
-			print("Release cooldown!")
-		
+#"""
+#This is NOT a function directly connected to this script.
+#It gets called from the fruit_box when that detects input.
+#Manages moving and releasing the fruit
+#"""
+#func on_fruit_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#if not can_input:
+		#return
+	#if event is InputEventScreenDrag:
+		#update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)	
+	##elif event is InputEventScreenTouch: # if the user touches the screen
+		##print("Screen/Mouse touch at " + str(event.position))
+		#
+		## if we can release the fruit, then release it at the correctly transformed screen position
+		##if not release_cooldown:
+			##release_fruit()
+		##else:
+			### TODO: Add some VFX and SFX and maybe even vibrations here to let the user know they cant release a fruit
+			##print("Release cooldown!")
+
 """
 General input function to handle events even outside of the fruit_box area
 Will only handle moving the fruit_spawner object, not releasing the fruit.
@@ -204,4 +205,12 @@ func _input(event : InputEvent) -> void:
 		
 		# move the fruit_spawner's x position to match the drag position.
 		# the held_fruit's position will be moved to match in _process()
-		update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)		
+		update_self_position(get_canvas_transform().affine_inverse().translated(event.position).origin)	
+
+
+func _on_touch_screen_button_pressed() -> void:
+	if not release_cooldown:
+		release_fruit()
+	else:
+		# TODO: Add some VFX and SFX and maybe even vibrations here to let the user know they cant release a fruit
+		print("Release cooldown!")
