@@ -1,3 +1,10 @@
+VBoxContainer
+Button
+HSplitContainer
+HBoxContainer
+RichTextLabel
+TextureRect
+MarginContainer
 Label
 TouchScreenButton
 WorldEnvironment
