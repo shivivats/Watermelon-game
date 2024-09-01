@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Watermelon-game-2"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://scenes/start-screen.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://assets/sprites/splash.png"
 config/icon="res://icon.svg"

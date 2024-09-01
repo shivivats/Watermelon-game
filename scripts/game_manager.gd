@@ -95,9 +95,9 @@ func _ready():
 	# update highscore text with default values
 	load_highscore()
 
-#func _process(delta):
-	#if Input.is_action_just_pressed("test"):
-		#store_highscore()
+func _process(delta):
+	if not fruits_parent:
+		fruits_parent = get_node("/root/Node2D/FruitsParent")
 		
 """
 Store the highscore when the app is paused,
@@ -106,7 +106,7 @@ Store the highscore when the app is paused,
 https://docs.godotengine.org/en/stable/tutorials/inputs/handling_quit_requests.html
 """
 func _notification(what):
-	if what == NOTIFICATION_APPLICATION_PAUSED or NOTIFICATION_WM_GO_BACK_REQUEST or NOTIFICATION_WM_CLOSE_REQUEST:
+	if what == NOTIFICATION_APPLICATION_PAUSED:
 		store_highscore()
 
 """
