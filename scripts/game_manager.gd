@@ -83,7 +83,7 @@ signal fruits_explosion(position, magnitude)
 signal new_held_fruit()
 
 """ Set input signal for when the game end UI pops up"""
-signal set_input(can_input)
+signal game_end()
 
 func _ready():
 	# find fruits_parent dynamically
@@ -98,6 +98,9 @@ func _ready():
 func _process(delta):
 	if not fruits_parent:
 		fruits_parent = get_node("/root/Node2D/FruitsParent")
+		
+	if Input.is_action_just_pressed("test"):
+		game_ended()
 		
 """
 Store the highscore when the app is paused,
@@ -139,7 +142,7 @@ func get_new_fruit_scene(fruit_id):
 Add some points based on the new fruit spawned
 """
 func add_points(fruit_id):
-	points += friuit_points[fruit_id]
+	points += friuit_points[fruit_id] * 100
 	points_updated.emit(points)
 
 """
@@ -182,8 +185,11 @@ func store_highscore():
 
 
 func game_ended():
+	get_tree().paused = true
 	store_highscore()
-	set_input.emit(false)
+	game_end.emit()
+	#set_input.emit(false)
+	
 
 
 func make_new_held_fruit():

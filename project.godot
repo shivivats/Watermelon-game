@@ -25,6 +25,7 @@ GameManager="*res://scenes/game_manager.tscn"
 window/size/viewport_width=1080
 window/size/viewport_height=2340
 window/subwindows/embed_subwindows=false
+window/stretch/scale=0.5
 window/handheld/orientation=1
 
 [dotnet]
