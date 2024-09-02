@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://crpop6s2tvc76"]
+
+[ext_resource type="Script" path="res://scripts/end_game_area.gd" id="1_ky55v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrwya"]
+size = Vector2(887, 171)
+
+[node name="EndGameArea" type="Area2D"]
+position = Vector2(-1, -449)
+script = ExtResource("1_ky55v")
+
+[node name="EndGameCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 182)
+shape = SubResource("RectangleShape2D_nrwya")
+
+[node name="EndGameShowMessageTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="EndGameShowMessageTimer" to="." method="_on_end_game_show_message_timer_timeout"]

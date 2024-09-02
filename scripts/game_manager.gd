@@ -142,7 +142,7 @@ func get_new_fruit_scene(fruit_id):
 Add some points based on the new fruit spawned
 """
 func add_points(fruit_id):
-	points += friuit_points[fruit_id] * 100
+	points += friuit_points[fruit_id] * 1000
 	points_updated.emit(points)
 
 """
@@ -185,7 +185,7 @@ func store_highscore():
 
 
 func game_ended():
-	get_tree().paused = true
+	#
 	store_highscore()
 	game_end.emit()
 	#set_input.emit(false)
