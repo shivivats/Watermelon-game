@@ -32,3 +32,7 @@ func show_end_screen():
 func _on_end_game_show_message_timer_timeout() -> void:
 	get_tree().paused = true
 	show_end_screen()
+
+func _on_back_to_menu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/start-screen.tscn")

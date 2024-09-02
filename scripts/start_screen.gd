@@ -5,6 +5,7 @@ var level_scene = preload("res://scenes/level.tscn").instantiate()
 
 
 func _ready():
+	get_tree().paused = false
 	current_best_label.text = "[center][i] Current Best: " + str(GameManager.highscore) + "[/i][/center]"
 
 func _on_start_button_pressed() -> void:
