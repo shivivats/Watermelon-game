@@ -99,8 +99,8 @@ func _process(delta):
 	if not fruits_parent:
 		fruits_parent = get_node("/root/Node2D/FruitsParent")
 		
-	if Input.is_action_just_pressed("test"):
-		game_ended()
+	#if Input.is_action_just_pressed("test"):
+		#game_ended()
 		
 """
 Store the highscore when the app is paused,
@@ -142,7 +142,7 @@ func get_new_fruit_scene(fruit_id):
 Add some points based on the new fruit spawned
 """
 func add_points(fruit_id):
-	points += friuit_points[fruit_id] * 1000
+	points += friuit_points[fruit_id]
 	points_updated.emit(points)
 
 """
