@@ -1,5 +1,6 @@
-VBoxContainer
 Button
+Timer
+VBoxContainer
 HSplitContainer
 HBoxContainer
 RichTextLabel

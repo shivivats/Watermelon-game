@@ -40,7 +40,7 @@ func _ready() -> void:
 	new_held_fruit()
 	
 	# subscribe to the disable input event from GameManager
-	GameManager.set_input.connect(update_can_input)
+	GameManager.game_end.connect(update_can_input)
 
 	GameManager.new_held_fruit.connect(new_held_fruit)
 
@@ -56,8 +56,8 @@ func _process(delta: float) -> void:
 Update the can_input variable
 Currently only happens when the game ends
 """
-func update_can_input(new_can_input):
-	self.can_input = new_can_input
+func update_can_input():
+	self.can_input = false
 
 """
 Release the current held fruit
